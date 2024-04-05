@@ -147,6 +147,12 @@ app.get("/gettrans", (req, res) => {
    
  }); 
   */
+app.use (express.static("./CLIENT/build"))
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "CLIENT", "build", "index.html"))
+})
+
+
   app.listen(3260, () => {
     console.log("Server started on port 3260")
 
